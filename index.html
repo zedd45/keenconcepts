@@ -17,6 +17,7 @@
 			<link rel="stylesheet" href="css/style-wide.css" />
 			<link rel="stylesheet" href="css/style-noscript.css" />
 		</noscript>
+		<link rel="stylesheet" href="css/morph.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
@@ -30,6 +31,7 @@
 				<!-- Header -->
 					<header id="header">
 						<h1>Chris Keen</h1>
+						<!-- <h2>Keen Concepts</h2> -->
 						<p>JavaScript Architect &nbsp;&bull;&nbsp; Nerd &nbsp;&bull;&nbsp; Dog Lover</p>
 						<nav>
 							<ul>
@@ -55,7 +57,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="mailto:christopher.keen@gmail.com" class="fa fa-envelope-o">
+									<a id="kc-contact-form" class="fa fa-envelope-o">
 										<span>Email</span>
 									</a>
 								</li>
@@ -70,9 +72,32 @@
 				
 			</div>
 		</div>
+
+
+		<div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed" id="kc-contact-modal">
+			
+			<div class="morph-content">
+				<div>
+					<div class="content-style-form content-style-form-1">
+						<span class="icon icon-close">Close the dialog</span>
+						<h2>Contact Us</h2>
+						<form>
+							<p><label>Email</label><input type="email" name="emailAddy"></p>
+							<p><label>Phone</label><input type="tel" name="phoneNumba"></p>
+							<p><label>Message</label><textarea style="height: 4em; width: 22em;" name="contactMessage"></textarea></p>
+							<p><button>Submit</button></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</body>
 
+	<!-- TODO: concat & minify -->
 	<script src="js/skel.min.js"></script>
+	<script src="js/classie.js"></script>
 	<script src="js/init.js"></script>
 		
 	<script>

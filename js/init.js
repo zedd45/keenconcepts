@@ -21,6 +21,13 @@
 	// Remove "loading" class once the page has fully loaded.
 		window.onload = function() {
 			document.body.className = '';
+
+			var contactAnchor = document.querySelector('#kc-contact-form');
+			
+			contactAnchor.addEventListener('click', function () {
+				var modal = document.querySelector('#kc-contact-modal');
+				classie.addClass( modal, 'active');
+			});
 		}
 
 	// Prevent scrolling on touch.
@@ -32,28 +39,3 @@
 		window.onorientationchange = function() {
 			document.body.scrollTop = 0;
 		}
-
-/*
-
-// Events (jQuery).
-// Aerial doesn't need jQuery, but if you're going to use it anyway remove the
-// block of JS events above and use the jQuery-based ones below instead.
-
-	$(window)
-
-		// Remove "loading" class once the page has fully loaded.
-			.on('load', function() {
-				$('body').removeClass('loading');
-			})
-
-		// Prevent scrolling on touch.
-			.on('touchmove', function() {
-				return false;
-			})
-
-		// Fix scroll position on orientation change.
-			.on('orientationchange', function() {
-				$('body').scrollTop(0);
-			});
-
-*/
