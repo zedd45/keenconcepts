@@ -1,0 +1,25 @@
+{
+  "name": "keenconcepts",
+  "version": "0.0.0",
+  "description": "marketing website for Keen Concepts",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:Zedd45/keen-concepts.git"
+  },
+  "keywords": [
+    "marketing",
+    "website",
+    "javascript",
+    "html5"
+  ],
+  "author": "chris.keen@keenwebconcepts.com",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^0.6.5",
+    "express": "^4.3.0"
+  }
+}
