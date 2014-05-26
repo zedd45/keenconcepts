@@ -31,6 +31,37 @@ module.exports = function(grunt) {
 				"static"
 			]
 		},
+
+		copy: {
+  			
+  			images: {
+    			files: [{
+    				expand: true, 
+    				src: ['css/images/*'], 
+    				dest: 'static',
+    				filter: 'isFile'
+    			}]
+    		},
+
+    		faLib: {
+    			files: [{
+    				expand: true, 
+    				src: ['css/font-awesome.min.css'], 
+    				dest: 'static',
+    				filter: 'isFile'
+    			}]
+    		},
+
+    		fonts: {
+    			files: [{
+    				expand: true,
+    				src: ['fonts/*.*'],
+    				dest: 'static',
+    				filter: 'isFile'
+    			}]
+    		}
+
+		},
 		
 		/**
 		 * check that our files will compile in uglify
@@ -69,9 +100,9 @@ module.exports = function(grunt) {
 		
 		
 		/**
-		 * concat & obsfucated js
-		 * NOTE: if you need more than one output file, Uglify doesn't seem to follow the standard Grunt File Patterns convention,
-		 *       so you will need to specify a whole new target. 
+		 * concat & obsfucate js
+		 * NOTE: "files" here is NOT analogous to Grunt's "files." You will need to read the contrib-uglify doc for more info
+		 * TODO: make files more dynamic (maybe a pull request for it to use Grunt's expand (http://gruntjs.com/api/grunt.file#grunt.file.expandmapping)
 		 */
 		uglify: {
 
@@ -79,12 +110,18 @@ module.exports = function(grunt) {
 				banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("mm-dd-yyyy") %> */\n',
 				preserveComments: 'some',
 				report: 'min',
+				// mangle: false,
+				// compress: false,
 				sourceMap: true
 			},
 
 			dist : {
 				files: {
-					'static/js/site.js' : ['js/**.*.js']
+					'static/js/site.js' : [
+						'js/skel.min.js',
+						'js/classie.js',
+						'js/init.js'
+					]
 				}
 			}
 		}
@@ -94,7 +131,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['dist']);
 
 	grunt.registerTask('dev', ['sass:dev']);
-	grunt.registerTask('dist', ['sass:dist', 'uglify:dist'])
+	grunt.registerTask('dist', ['copy', 'sass:dist', 'uglify:dist'])
 
 	
 };
