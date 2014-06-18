@@ -26,7 +26,7 @@
 			
 			contactAnchor.addEventListener('click', function () {
 				var modal = document.querySelector('#kc-contact-modal');
-				classie.addClass( modal, 'active');
+				classie.addClass( modal, 'open');
 			});
 		}
 
