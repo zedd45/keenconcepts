@@ -1,5 +1,6 @@
 /**
  * simple gruntfile to minify assets and use node-sass.  
+ * TODO: move constants out to JSON file
  */
 
 module.exports = function(grunt) {
@@ -77,7 +78,7 @@ module.exports = function(grunt) {
 			}
 		},
 
-		 sass: {
+		sass: {
 
 		 	dev: {
 		 		
@@ -120,17 +121,35 @@ module.exports = function(grunt) {
 					'static/js/site.js' : [
 						'js/skel.min.js',
 						'js/classie.js',
-						'js/init.js'
+						'js/init.js',
+						'js/kc.js'
 					]
 				}
 			}
+		},
+
+
+		watch: {
+			
+			sass: {
+				files: ['**/*.scss'],
+				tasks: ['sass:dev']
+			},
+
+			js: {
+				files: ['js/**/*.js'],
+				tasks: ['jshint']
+			}
+
 		}
 		
 	});
 
+
+
 	grunt.registerTask('default', ['dist']);
 
-	grunt.registerTask('dev', ['sass:dev']);
+	grunt.registerTask('dev', ['sass:dev', 'watch']);
 	grunt.registerTask('dist', ['copy', 'sass:dist', 'uglify:dist'])
 
 	
