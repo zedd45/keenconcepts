@@ -21,21 +21,14 @@
 	// Remove "loading" class once the page has fully loaded.
 		window.onload = function() {
 			document.body.className = '';
-
-			var contactAnchor = document.querySelector('#kc-contact-form');
-			
-			contactAnchor.addEventListener('click', function () {
-				var modal = document.querySelector('#kc-contact-modal');
-				classie.addClass( modal, 'open');
-			});
-		}
+		};
 
 	// Prevent scrolling on touch.
 		window.ontouchmove = function() {
 			return false;
-		}
+		};
 
 	// Fix scroll position on orientation change.
 		window.onorientationchange = function() {
 			document.body.scrollTop = 0;
-		}
+		};

@@ -96,7 +96,7 @@
 }
 
 .kc-icon-close::before {
-	content: "\e601";
+	content: "x";
 }
 
 .kc-icon-close {
@@ -105,9 +105,10 @@
 	overflow: hidden;
 	width: 3em;
 	height: 3em;
-	text-align: center;
+	text-align: right;
 	line-height: 3;
 	cursor: pointer;
+	color: #000;
 }
 
 input {
@@ -123,7 +124,6 @@ input {
 	&:focus {
 		outline: none;
 		border-color: #b3b3b3;
-		color: #aaa;
 	}
 }
 
