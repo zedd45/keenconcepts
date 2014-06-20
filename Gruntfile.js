@@ -68,7 +68,7 @@ module.exports = function(grunt) {
 		 * check that our files will compile in uglify
 		 */
 		jshint: {
-			files: ['GruntFile.js', 'package.json', 'js/**/*.js'],
+			files: ['GruntFile.js', 'package.json', 'js/**/*.js', '!js/**/*min.js'],
 			options: {
 				// options here to override JSHint defaults
 				globals: {
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 
 			js: {
 				files: ['js/**/*.js'],
-				tasks: ['jshint']
+				tasks: ['jshint', 'uglify:dist']
 			}
 
 		}
@@ -150,7 +150,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['dist']);
 
 	grunt.registerTask('dev', ['sass:dev', 'watch']);
-	grunt.registerTask('dist', ['copy', 'sass:dist', 'uglify:dist'])
+	grunt.registerTask('dist', ['copy', 'sass:dist', 'uglify:dist']);
 
 	
 };
