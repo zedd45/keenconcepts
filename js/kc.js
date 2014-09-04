@@ -65,20 +65,17 @@
 		},
 
 		closeModal: function () {
-			// TOOD: remove this dependency or use CJS / dep management
-			window.classie.removeClass( this.dialog, 'open');
+			this.dialog.classList.remove('open');
 		},
 
 		openModal: function () {
 			var box = this.dialog.getBoundingClientRect();
 
-			window.classie.addClass( this.dialog, 'open');
+			this.dialog.classList.add('open');
 
 			// body has no height due to positioning characteristics
 			this.dialog.style.top = ( window.innerHeight / 2 ) - ( box.height / 2 );
-			this.dialog.style.left = ( window.innerWidth / 2 ) - ( box.width /2 );
-
-			this.dialog.style.height = "350px";
+			this.dialog.style.left = ( window.innerWidth / 2 ) - ( box.width / 2 );
 
 			return this;
 		},
