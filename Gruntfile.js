@@ -1,19 +1,19 @@
 /**
- * simple gruntfile to minify assets and use node-sass.  
+ * simple gruntfile to minify assets and use node-sass.
  * TODO: move constants out to JSON file
  */
 
 module.exports = function(grunt) {
-	
+
 	'use strict';
 
 	// use matchdep to load our grunt contrib modules dynamically from package.json's dev dependencies (filterDev)
 	require('matchdep').filterDev('grunt-*', require("./package.json")).forEach( grunt.loadNpmTasks );
-	
+
 	grunt.initConfig({
-		
+
 		pkg: grunt.file.readJSON('package.json'),
-		
+
 		sassFiles: [{
 			expand: true,
 			cwd: 'sass',
@@ -34,11 +34,11 @@ module.exports = function(grunt) {
 		},
 
 		copy: {
-  			
+
   			images: {
     			files: [{
-    				expand: true, 
-    				src: ['css/images/*'], 
+    				expand: true,
+    				src: ['css/images/*'],
     				dest: 'static',
     				filter: 'isFile'
     			}]
@@ -46,8 +46,8 @@ module.exports = function(grunt) {
 
     		faLib: {
     			files: [{
-    				expand: true, 
-    				src: ['css/font-awesome.min.css'], 
+    				expand: true,
+    				src: ['css/font-awesome.min.css'],
     				dest: 'static',
     				filter: 'isFile'
     			}]
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     		}
 
 		},
-		
+
 		/**
 		 * check that our files will compile in uglify
 		 */
@@ -81,14 +81,14 @@ module.exports = function(grunt) {
 		sass: {
 
 		 	dev: {
-		 		
+
 		 		files: '<%= sassFiles %>',
 
 		 		options: {
 	                outputStyle: 'nested'
 	            }
 		 	},
-		 	
+
 			dist: {
 				files: '<%= sassFiles %>',
 
@@ -97,9 +97,9 @@ module.exports = function(grunt) {
 	            }
 			}
 		},
-		
-		
-		
+
+
+
 		/**
 		 * concat & obsfucate js
 		 * NOTE: "files" here is NOT analogous to Grunt's "files." You will need to read the contrib-uglify doc for more info
@@ -111,8 +111,8 @@ module.exports = function(grunt) {
 				banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("mm-dd-yyyy") %> */\n',
 				preserveComments: 'some',
 				report: 'min',
-				// mangle: false,
-				// compress: false,
+				mangle: false,
+				compress: false,
 				sourceMap: true
 			},
 
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
 
 
 		watch: {
-			
+
 			sass: {
 				files: ['**/*.scss'],
 				tasks: ['sass:dev']
@@ -142,7 +142,7 @@ module.exports = function(grunt) {
 			}
 
 		}
-		
+
 	});
 
 
@@ -152,5 +152,5 @@ module.exports = function(grunt) {
 	grunt.registerTask('dev', ['sass:dev', 'watch']);
 	grunt.registerTask('dist', ['copy', 'sass:dist', 'uglify:dist']);
 
-	
+
 };

@@ -4,8 +4,8 @@
  * http://opensource.org/licenses/MIT
  */
 
-(function (d) {
-			
+(function () {
+
 	// 'borrow' proxy from jQuery core.js
 	// Bind a function to a context, optionally partially applying any
 	// arguments.
@@ -34,10 +34,10 @@
 	kcModal = {
 
 		initModal: function ( selector ) {
-			
+
 			this.trigger = document.querySelector( selector );
 			this.dialog = document.querySelector('#kc-contact-modal');
-			this.close  = this.dialog.querySelector('.modal-close');
+			this.close  = this.dialog.querySelector('.kc-icon-close');
 
 			this.bindEventListeners();
 
@@ -45,7 +45,7 @@
 		},
 
 		bindEventListeners: function () {
-			
+
 			this.trigger.addEventListener('click', proxy( this.openModal, this));
 			this.close.addEventListener('click', proxy( this.closeModal, this));
 
@@ -66,21 +66,25 @@
 
 		closeModal: function () {
 			// TOOD: remove this dependency or use CJS / dep management
-			window.classie.removeClass('open');
+			window.classie.removeClass( this.dialog, 'open');
 		},
 
 		openModal: function () {
-			var box = this.dialog.getBoundingClientRect(),
-				viewPort = document.querySelector('body').getBoundingClientRect();
+			var box = this.dialog.getBoundingClientRect();
 
-			this.dialog.top = ( viewport.height / 2 ) - ( box.height / 2 );
-			this.dialog.left = ( viewport.width / 2 ) - ( box.width /2 );
+			window.classie.addClass( this.dialog, 'open');
+
+			// body has no height due to positioning characteristics
+			this.dialog.style.top = ( window.innerHeight / 2 ) - ( box.height / 2 );
+			this.dialog.style.left = ( window.innerWidth / 2 ) - ( box.width /2 );
+
+			this.dialog.style.height = "350px";
 
 			return this;
 		},
 
 		remove: function () {
-			this.unbindEventListeners();	
+			this.unbindEventListeners();
 
 			this.trigger = null;
 			this.dialog = null;
@@ -90,10 +94,10 @@
 	};
 
 
-	d.addEventListener("DOMContentLoaded", function() {
-	    kcModal.initModal('#kc-contact-modal');
+	document.addEventListener("DOMContentLoaded", function() {
+	    kcModal.initModal('#kc-contact-form');
 	});
 
-})(document);
+})();
 
 
