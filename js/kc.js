@@ -69,13 +69,13 @@
 		},
 
 		openModal: function () {
-			var box = this.dialog.getBoundingClientRect();
-
 			this.dialog.classList.add('open');
 
-			// body has no height due to positioning characteristics
-			this.dialog.style.top = ( window.innerHeight / 2 ) - ( box.height / 2 );
-			this.dialog.style.left = ( window.innerWidth / 2 ) - ( box.width / 2 );
+			var box = this.dialog;
+
+			// body has no height due to positioning characteristics, and box is absolutely positioned, so... Flexbox? :D
+			this.dialog.style.top = -1 * ( 375/2 ) + "px";
+			this.dialog.style.left = -1 * ( 375/2 ) + "px";
 
 			return this;
 		},
