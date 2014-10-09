@@ -86,7 +86,7 @@
 			this.trigger = null;
 			this.dialog = null;
 			this.close = null;
-		}
+		},
 
 	};
 
