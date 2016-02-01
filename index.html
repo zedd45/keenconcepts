@@ -9,18 +9,18 @@
 		<title>Keen Concepts: (Graphical) User Interface and JavaScript Consulting</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="Chris Keen: Atlanta-based JavaScript Architect / UI Engineer" />
-		<meta name="keywords" content="" />
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<!-- TODO: concat & minify -->
-		<script src="static/js/site.js"></script>
+
+		<!-- <meta name="keywords" content="" /> -->
+		<!--[if lte IE 8]><script src="static/css/ie/html5shiv.js"></script><![endif]-->
+    <!-- needs to be here instead of footer to prevent FOUC -->
+    <script src="static/js/site.js"></script>
 
 		<noscript>
-			<link rel="stylesheet" href="/static/css/skel.css" />
-			<link rel="stylesheet" href="/static/css/style.css" />
-			<link rel="stylesheet" href="/static/css/style-wide.css" />
-			<link rel="stylesheet" href="/static/css/style-noscript.css" />
+			<link rel="stylesheet" href="static/css/skel.css" />
+			<link rel="stylesheet" href="static/css/style.css" />
+			<link rel="stylesheet" href="static/css/style-wide.css" />
+			<link rel="stylesheet" href="static/css/style-noscript.css" />
 		</noscript>
-
 
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -31,9 +31,6 @@
 		  ga('create', 'UA-51049758-1', 'keenconcepts.com');
 		  ga('send', 'pageview');
 		</script>
-
-		<!--[if lte IE 9]><link rel="stylesheet" href="static/css/ie/v9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="static/css/ie/v8.css" /><![endif]-->
 
 	</head>
 	<body class="loading">
@@ -48,7 +45,6 @@
 				<!-- Header -->
 					<header id="header">
 						<h1>Chris Keen</h1>
-						<!-- <h2>Keen Concepts</h2> -->
 						<p>JavaScript Architect &nbsp;&bull;&nbsp; Nerd &nbsp;&bull;&nbsp; Dog Lover</p>
 						<nav>
 							<ul>
@@ -72,6 +68,11 @@
 										<span>+Keen Concepts</span>
 									</a>
 								</li>
+                <li>
+                    <a href="https://twitter.com/zedd45" class="fa fa-twitter">
+                        <span>Twitter</span>
+                    </a>
+                </li>
 								<li>
 									<a href="/presentation/pdf/resume_chris_keen.pdf" class="fa fa-file">
 										<span>Resume</span>
@@ -91,23 +92,6 @@
 					<span class="copyright">&copy; Keen Concepts. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
 				</footer>
 
-				<!-- modal -->
-				<div id="kc-contact-modal" class="kc-modal">
-					<div class="kc-modal-content">
-						<span class="kc-icon kc-icon-close">Close the dialog</span>
-						<h2>Contact Us</h2>
-						<form method="POST" action="http://keenwebconcepts.com/forms/contact_Keen_Web_Concepts_for_web_development_needs">
-							<input name="name" placeholder="Joey Smith" required />
-							<input type="email" name="email" placeholder="email" required />
-							<label>Phone</label><input type="tel" name="mainPhone" placeholder="phone number" required/>
-							<textarea name="message" placeholder="Love to tell you about this idea for an app..."></textarea>
-							<!-- legacy support until we get NodeMailer up & running -->
-							<input type="hidden" name="submitted" value="1"/>
-							<button>Submit</button>
-
-						</form>
-					</div>
-				</div>
 			</div>
 		</div>
 
