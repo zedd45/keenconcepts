@@ -1,7 +1,7 @@
 {
   "name": "keenconcepts",
-  "version": "0.1.0",
-  "description": "marketing website for Keen Concepts",
+  "version": "1.0.0",
+  "description": "Marketing website for Keen Concepts",
   "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
     "javascript",
     "html5"
   ],
-  "author": "chris.keen@keenwebconcepts.com",
+  "author": "christopher.keen@gmail.com",
   "license": "MIT",
   "dependencies": {
     "nodemailer": "^0.6.5",
